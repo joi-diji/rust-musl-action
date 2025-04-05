@@ -8,6 +8,10 @@ LABEL com.github.actions.description="Provides a Rust MUSL environment"
 LABEL com.github.actions.icon="settings"
 LABEL com.github.actions.color="orange"
 
+RUN apt-get update && \
+    apt-get install -y musl-tools pkg-config libssl-dev && \
+    apt-get clean
+    
 ENV BUILD_DIR=/build \
     OUTPUT_DIR=/output \
     RUST_BACKTRACE=1 \
