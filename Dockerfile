@@ -10,6 +10,7 @@ LABEL com.github.actions.color="orange"
 
 RUN apt-get update && \
     apt-get install -y musl-tools pkg-config libssl-dev && \
+    ln -s /usr/bin/musl-gcc /usr/bin/x86_64-linux-musl-gcc && \
     apt-get clean
     
 ENV BUILD_DIR=/build \
